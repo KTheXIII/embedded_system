@@ -107,7 +107,7 @@ LDI R16, R20   ; Add R16 and R20, R16 = R16 + R20
 
 #### Example program: Add 3 values
 
-Exmaple using 3 registers:
+Example using 3 registers:
 
 ```
 LDI R16, 19    ; R16 = 19
@@ -205,17 +205,17 @@ We can label the location where we want to jump using a unique name followed by 
 
 #### `JMP`
 
-TODO
+This instruction is used to jump to anywhere in the program memory.
 
 #### `RJMP` (Relative Jump)
 
-TODO
+Relative Jump is for jumping relatively from where the program counter is currently is in.
 
 ### Call
 
 The call instruction needs a stack to work since it is calling a subroutine and need a way to go back when the subroutine is done.
 
-The stack datastructure is a LIFO (**L**ast **I**n, **F**irst **O**ut), this mean that the first data being pushed onto the stack will need to pop all the data on top of it before it can be read.
+The stack data-structure is a LIFO (**L**ast **I**n, **F**irst **O**ut), this mean that the first data being pushed onto the stack will need to pop all the data on top of it before it can be read.
 
 ![Illusttration of Last In, First Out](https://upload.wikimedia.org/wikipedia/commons/b/b4/Lifo_stack.png)
 
@@ -250,8 +250,7 @@ void hello() {
 }
 ```
 
-This will run until we run out of allocated memory fo the stack.
-
+This will run until we run out of allocated memory for the stack.
 
 **PUSH**
 
@@ -286,7 +285,7 @@ Program Counter PC (16 bit)
 - Increased by 1 during instruction execution
 - Can be set using JMP
 
-Statck Pointer SP (16 bit)
+Stack Pointer SP (16 bit)
 - Stack is used by CALL/RCALL to save PC
 - Stack can be used using (PUSH, POP)
   - The stack pointer counts downwards when something is added to stack

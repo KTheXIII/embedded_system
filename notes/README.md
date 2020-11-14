@@ -1,4 +1,4 @@
-# Notes for Embbeded System
+# Notes for Embedded System
 
 ## Resources
 
