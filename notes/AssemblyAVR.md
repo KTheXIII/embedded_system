@@ -23,11 +23,16 @@ Notes for AVR assembly instructions.
     - [Jump](#jump)
       - [Types of Jump](#types-of-jump)
       - [Unconditional Jump in AVR](#unconditional-jump-in-avr)
+      - [JMP vs RJMP, CALL vs RCALL](#jmp-vs-rjmp-call-vs-rcall)
       - [`JMP`](#jmp)
       - [`RJMP` (Relative Jump)](#rjmp-relative-jump)
     - [Call](#call)
   - [Registers bit](#registers-bit)
   - [Note: R0 to R15](#note-r0-to-r15)
+  - [Assembler directives](#assembler-directives)
+    - [Assembler Directives: .EQU and .DEF](#assembler-directives-equ-and-def)
+    - [Assembler Directives: .ORG](#assembler-directives-org)
+  - [Data in RAM](#data-in-ram)
 
 ## Introduction
 
@@ -203,6 +208,12 @@ There are 3 unconditional jump instructions in AVR: `RJMP`, `JMP` and `IJMP`
 We can label the location where we want to jump using a unique name followed by `:`
 
 
+#### JMP vs RJMP, CALL vs RCALL
+
+JMP address is in 16-bit address space. THis is the same as CALL.
+
+RJMP and RCALL use a relative placement from the current position. These instrcutions takes less space. 
+
 #### `JMP`
 
 This instruction is used to jump to anywhere in the program memory.
@@ -286,6 +297,7 @@ Program Counter PC (16 bit)
 - Can be set using JMP
 
 Stack Pointer SP (16 bit)
+
 - Stack is used by CALL/RCALL to save PC
 - Stack can be used using (PUSH, POP)
   - The stack pointer counts downwards when something is added to stack
@@ -301,3 +313,51 @@ LDI R16, 10
 MOV R0, R16
 ```
 
+## Assembler directives
+
+```
+.BYTE   ; reserve space for one byte in RAM
+.CSEG   ; the next instructions relates to the program memory
+.DEF    ; define a symbolic name for a regsiter
+```
+
+### Assembler Directives: .EQU and .DEF
+
+`.EQU name = value`
+
+This is used for defining name for a value.
+
+Example:
+
+```
+.EQU COUNT = 0x25
+LDI  R21, COUNT       ; R21 = 0x25
+LDI  R22, COUNT + 3   ; R22 = 0x28
+```
+
+`.DEF name = Register`
+
+This is the same as .EQU but instead it is used for naming a register.
+
+Example:
+
+```
+.DEF COUNTER  R16   ; We now renamed R16 to COUNTER
+LDI  COUNTER, COUNT  ; R16 = 0x25
+```
+
+### Assembler Directives: .ORG
+
+This is used for where our program will be starting at in memory.
+
+`.ORG address`
+
+## Data in RAM
+
+```
+.DSEG
+.ORG    0x100
+Variable_A:   .BYTE 1 ;
+Variable_B:   .BYTE 1 ;
+.CSEG
+```
