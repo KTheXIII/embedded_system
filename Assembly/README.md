@@ -7,6 +7,8 @@ Here contains the guide on how to assemble your assembly code.
 - [Assembly notes for Embedded System](#assembly-notes-for-embedded-system)
   - [Table of content](#table-of-content)
   - [Assembler and Programmer](#assembler-and-programmer)
+  - [Resources](#resources)
+    - [Articles](#articles)
   - [Development Environment](#development-environment)
     - [macOS](#macos)
     - [Windows](#windows)
@@ -17,14 +19,19 @@ Here contains the guide on how to assemble your assembly code.
     - [Windows](#windows-1)
       - [Assemble](#assemble-1)
       - [Program](#program-1)
-  - [Resources](#resources)
-    - [Articles](#articles)
 
 ## Assembler and Programmer
 
 [avra](https://github.com/Ro5bert/avra) can be use as assembler. But you'll need to include defintions for different chips. Check [AVR repo](https://github.com/DarkSector/AVR) for defintions. If you have Atmel Studio already you can just use the generated defintions.
 
 [avrdude](https://savannah.nongnu.org/projects/avrdude/) can be use for programming the chip. You can also use avrdude that's included in arduino.
+
+## Resources
+
+- [Instruction set](http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf) pdf
+
+### Articles
+ - [Beginners Programming in AVR Assembler](http://www.avr-asm-tutorial.net/avr_en/beginner/index.html)
 
 ## Development Environment
 
@@ -159,13 +166,3 @@ For the `Arguments` field you'll need to include this
 `<device/port>` is your device. To check on Windows 10, open your `Device Manager` (press windows key and type device manager and it'll show up). The device is listed in the **Ports (COM & LPT)**, expand it to see more. Press reset twice to make it show up. Replace `<device/port>` with the value that's showing up. 
 
 Note: Pressing reset makes the board go into programming mode.
-
-
-
-
-## Resources
-
-- [Instruction set](http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf) pdf
-
-### Articles
- - [Beginners Programming in AVR Assembler](http://www.avr-asm-tutorial.net/avr_en/beginner/index.html)
