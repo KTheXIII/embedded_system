@@ -11,11 +11,13 @@ Here contains the guide on how to assemble your assembly code.
     - [Articles](#articles)
   - [Development Environment](#development-environment)
     - [macOS](#macos)
+    - [Linux](#linux)
     - [Windows](#windows)
   - [Assemble and Program](#assemble-and-program)
     - [macOS](#macos-1)
       - [Assemble](#assemble)
       - [Program](#program)
+    - [Linux](#linux-1)
     - [Windows](#windows-1)
       - [Assemble](#assemble-1)
       - [Program](#program-1)
@@ -24,7 +26,7 @@ Here contains the guide on how to assemble your assembly code.
 
 [avra](https://github.com/Ro5bert/avra) can be use as assembler. But you'll need to include defintions for different chips. Check [AVR repo](https://github.com/DarkSector/AVR) for defintions. If you have Atmel Studio already you can just use the generated defintions.
 
-[avrdude](https://savannah.nongnu.org/projects/avrdude/) can be use for programming the chip. You can also use avrdude that's included in arduino.
+[avrdude](https://www.nongnu.org/avrdude/) can be use for programming the chip. You can also use avrdude that's included in arduino.
 
 ## Resources
 
@@ -54,6 +56,12 @@ brew install avrdude
 ```
 
 This is only true if you've installed arduino in the `/Applications` directory.
+
+### Linux
+
+For linux you can use your package manager and install `avra` and `avrdude`.
+
+For avra you can also install from source, follow the [Build guide](https://github.com/Ro5bert/avra#build).
 
 ### Windows
 
@@ -105,7 +113,7 @@ This make sure you have access to the definitions such as PORTx, DDRx and such.
 
 To program the chip you can use `avrdude`. Assuming you've already assembled and generated the `.hex` file.
 
-**Step 1** is to find out what port your device is connected to. You can use the following command
+Find out what port your device is connected to. You can use the following command
 
 ```
 ls /dev/tty.* 
@@ -140,6 +148,10 @@ Example:
 `<device/port>` is your device. 
 
 `<path/to/hex>` is your generated hex file
+
+### Linux
+
+TODO
 
 ### Windows
 
