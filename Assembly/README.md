@@ -24,9 +24,9 @@ Here contains the guide on how to assemble your assembly code.
 
 ## Assembler and Programmer
 
-[avra](https://github.com/Ro5bert/avra) can be use as assembler. But you'll need to include defintions for different chips. Check [AVR repo](https://github.com/DarkSector/AVR) for defintions. If you have Atmel Studio already you can just use the generated defintions.
+[avra](https://github.com/Ro5bert/avra) can be use as assembler. But you'll need to include definitions for different chips. Check [AVR repo](https://github.com/DarkSector/AVR) for definitions. If you have Atmel Studio already you can just use the generated definitions.
 
-[avrdude](https://www.nongnu.org/avrdude/) can be use for programming the chip. You can also use avrdude that's included in arduino.
+[avrdude](https://www.nongnu.org/avrdude/) can be use for programming the chip. You can also use avrdude that's included in Arduino.
 
 ## Resources
 
@@ -39,7 +39,7 @@ Here contains the guide on how to assemble your assembly code.
 
 ### macOS
 
-On macOS you can use [brew](https://brew.sh) to install `avra` and `avrdude`. For `avrdude` you can also download [arduino](https://www.arduino.cc) and use the one that's included.
+On macOS you can use [brew](https://brew.sh) to install `avra` and `avrdude`. For `avrdude` you can also download [Arduino](https://www.arduino.cc) and use the one that's included.
 
 ```
 brew install avra
@@ -49,13 +49,13 @@ brew install avra
 brew install avrdude
 ```
 
-`avrdude` in arduino. The path is usually at
+`avrdude` in Arduino. The path is usually at
 
 ```
 /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude
 ```
 
-This is only true if you've installed arduino in the `/Applications` directory.
+This is only true if you've installed Arduino in the `/Applications` directory.
 
 ### Linux
 
@@ -89,7 +89,7 @@ Arduino\hardware\tools\avr\etc\avrdude.conf
 
 To assemble the code you'll need the definitions for the chips you're using. The [AVR repo](https://github.com/DarkSector/AVR) have the definitions generated with Atmel Studio 7 in the `/asm/include` directory. You'll need to copy the correct definition for your chips.
 
-Example: If we're using Atmega32u4, we'll need to get this `m32U4def.inc` file. The avra assembler doesn't have Atmega32U4 listed in their device list. You can circumvent by changing the `.device` value to `Atmega32`
+Example: If we're using Atmega32u4, we'll need to get this `m32U4def.inc` file. The avra assembler doesn't have Atmega32u4 listed in their device list. You can circumvent by changing the `.device` value to `Atmega32`
 
 ```
 .device Atmega32

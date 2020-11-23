@@ -212,7 +212,7 @@ We can label the location where we want to jump using a unique name followed by 
 
 JMP address is in 16-bit address space. THis is the same as CALL.
 
-RJMP and RCALL use a relative placement from the current position. These instrcutions takes less space. 
+RJMP and RCALL use a relative placement from the current position. These instructions takes less space. 
 
 #### `JMP`
 
@@ -251,7 +251,7 @@ int main(int argc, char const *argv[]) {
 }
 ```
 
-When we call `hello` function the current program counter is pushed onto the stack until `hello` is done and the stack will be poped and return to the `main`. We can also call `hello` inside `hello`
+When we call `hello` function the current program counter is pushed onto the stack until `hello` is done and the stack will be popped and return to the `main`. We can also call `hello` inside `hello`
 
 Example C++ recursion:
 
