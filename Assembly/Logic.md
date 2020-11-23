@@ -2,10 +2,10 @@
 
 Logical instructions and example usage.
 
-## Table of contents
+## Table of Contents
 
 - [AVR Logic Instructions](#avr-logic-instructions)
-  - [Table of contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [AND](#and)
   - [ANDI (AND Immediate)](#andi-and-immediate)
   - [OR](#or)
@@ -186,7 +186,7 @@ Cycles: 1
 
 Usage:
 
-```
+```asm
 ASR Rd
 ```
 
@@ -194,7 +194,7 @@ ASR Rd
 
 ## ROL (Rotate Left through Carry)
 
-Shifts all bits in `Rd` one place to the left. The C Flag is shifted into bit 0 of `Rd`. Bit 7 is shifted into the C Flag. This operation, combined with `LSL`, effectively multiplies multi-byte signed and unsiged values by two.
+Shifts all bits in `Rd` one place to the left. The C Flag is shifted into bit 0 of `Rd`. Bit 7 is shifted into the C Flag. This operation, combined with `LSL`, effectively multiplies multi-byte signed and unsiged values by two. (Source: AVR Instruction Set Manual)
 
 Require one register.
 
@@ -202,7 +202,7 @@ Cycles: 1
 
 Usage:
 
-```
+```asm
 ROL Rd
 ```
 
@@ -218,7 +218,7 @@ Cycles: 1
 
 Usage:
 
-```
+```asm
 ROR Rd
 ```
 

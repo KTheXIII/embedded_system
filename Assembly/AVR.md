@@ -2,10 +2,10 @@
 
 Notes for AVR assembly instructions.
 
-## Table of contents
+## Table of Contents
 
 - [Assembly instructions for AVR](#assembly-instructions-for-avr)
-  - [Table of contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
     - [Instruction using one register](#instruction-using-one-register)
     - [Instruction using 2 register](#instruction-using-2-register)
@@ -65,14 +65,14 @@ LDI is used for loading value into `Rd`, where `R` is the keyword for register a
 
 Usage:
 
-```
-LDI Rd, k ; Rd is the destination register
-          ; k is the value
+```asm
+LDI Rd, k     ; Rd is the destination register
+              ; k is the value
 ```
 
 Example:
 
-```
+```asm
 LDI R16, 53   ; load value 53 into Register 16
 LDI R19, 132  ; load value 1332 into Register 19
 LDI R23, 0x27 ; load value 0x27 into Register 23
@@ -88,7 +88,7 @@ ADD is used for adding 2 values
 
 Usage:
 
-```
+```asm
 ADD Rd, Rs    ; Rd, destination register
               ; Rs is the source register
 ```
@@ -97,14 +97,14 @@ This will add the value in `Rs` into `Rd`. The `Rd` will contain the result of t
 
 Example:
 
-```
+```asm
 ADD R25, R9   ; Add value in register 25 and register 9
               ; The result is in R25
 ```
 
 #### Example program: Add 2 values
 
-```
+```asm
 LDI R16, 19    ; R16 = 19 (decimal value)
 LDI R20, 95    ; R20 = 95
 LDI R16, R20   ; Add R16 and R20, R16 = R16 + R20
@@ -114,7 +114,7 @@ LDI R16, R20   ; Add R16 and R20, R16 = R16 + R20
 
 Example using 3 registers:
 
-```
+```asm
 LDI R16, 19    ; R16 = 19
 LDI R20, 95    ; R20 = 95
 LDI R21, 5     ; R21 = 5
@@ -124,7 +124,7 @@ ADD R16, R21   ; R16 = R16 + R21
 
 Example using 2 registers:
 
-```
+```asm
 LDI R16, 19
 LDI R20, 95
 ADD R16, R20
@@ -138,7 +138,7 @@ For AVR there is no `ADDI` (ADD Immediate) instruction, `SUBI` (SUB Immediate) e
 
 Example:
 
-```
+```asm
 LDI R16, 10   ; Load value 10 into R16
 SUBI R16, -5  ; SUB R16 with -5, R16 = 15
 SUBI R16, -5  ; SUB R16 with -5, R16 = 20
@@ -148,7 +148,7 @@ SUBI R16, -5  ; SUB R16 with -5, R16 = 20
 
 INC instruction will increment the value by one. This is the same as doing `i++` in C++;
 
-```
+```asm
 INC Rd  ; Increment Rd value by 1 
 ```
 
@@ -156,7 +156,7 @@ INC Rd  ; Increment Rd value by 1
 
 DEC instruction will decrement value by one, equivalent `i--`.
 
-```
+```asm
 DEC Rd  ; Decrement Rd value by 1
 ```
 
@@ -185,7 +185,7 @@ Usage:
 
 This load `k`(contain instruction address) into `PC`. 
 
-```
+```asm
 LDI PC, k ; k is the destination of the instruction
 ```
 
@@ -265,24 +265,24 @@ This will run until we run out of allocated memory for the stack.
 
 **PUSH**
 
-```
+```asm
 PUSH Rr
 ```
 
 `SP`: Stack Pointer
 
-```
+```asm
 [SP] = Rr
 SP = SP - 1
 ```
 
 **POP**
 
-```
+```asm
 POP Rd
 ```
 
-```
+```asm
 SP = SP + 1
 Rd = [SP]
 ```
@@ -308,14 +308,14 @@ Only register R16 to R31 (inclusive) can be loaded immediate. To load value into
 
 Example: Load Immediate value 10 to R16 and then Move it to R0
 
-```
+```asm
 LDI R16, 10
 MOV R0, R16
 ```
 
 ## Assembler directives
 
-```
+```asm
 .BYTE   ; reserve space for one byte in RAM
 .CSEG   ; the next instructions relates to the program memory
 .DEF    ; define a symbolic name for a regsiter
@@ -329,7 +329,7 @@ This is used for defining name for a value.
 
 Example:
 
-```
+```asm
 .EQU COUNT = 0x25
 LDI  R21, COUNT       ; R21 = 0x25
 LDI  R22, COUNT + 3   ; R22 = 0x28
@@ -341,7 +341,7 @@ This is the same as .EQU but instead it is used for naming a register.
 
 Example:
 
-```
+```asm
 .DEF COUNTER  R16   ; We now renamed R16 to COUNTER
 LDI  COUNTER, COUNT  ; R16 = 0x25
 ```
@@ -354,7 +354,7 @@ This is used for where our program will be starting at in memory.
 
 ## Data in RAM
 
-```
+```asm
 .DSEG
 .ORG    0x100
 Variable_A:   .BYTE 1 ;

@@ -1,9 +1,9 @@
 # AVR using ports in Assembly
 
-## Table of contents
+## Table of Contents
 
 - [AVR using ports in Assembly](#avr-using-ports-in-assembly)
-  - [Table of contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
       - [Instructions related to Ports](#instructions-related-to-ports)
       - [Boolean instructions](#boolean-instructions)
@@ -14,11 +14,11 @@
       - [Example: Input](#example-input)
       - [Pull-up resistor](#pull-up-resistor)
   - [SBI and CBI Instructions](#sbi-and-cbi-instructions)
-    - [`SBI` (Set Bit in IO register)](#sbi-set-bit-in-io-register)
-    - [`CBI` (Clear Bit in IO register)](#cbi-clear-bit-in-io-register)
+    - [SBI (Set Bit in IO register)](#sbi-set-bit-in-io-register)
+    - [CBI (Clear Bit in IO register)](#cbi-clear-bit-in-io-register)
   - [SBIC and SBIS Instructions](#sbic-and-sbis-instructions)
-    - [`SBIC` (Skip if Bit in IO register Cleared)](#sbic-skip-if-bit-in-io-register-cleared)
-    - [`SBIS` (Skip if Bit in IO register Set)](#sbis-skip-if-bit-in-io-register-set)
+    - [SBIC (Skip if Bit in IO register Cleared)](#sbic-skip-if-bit-in-io-register-cleared)
+    - [SBIS (Skip if Bit in IO register Set)](#sbis-skip-if-bit-in-io-register-set)
 
 ## Introduction
 
@@ -64,11 +64,11 @@ use for setting if it's an input or an output. This is combined with `PORTx`
 PORTx   ; PORT regsiter
 ```
 
-| PORTX | DDRX  |     Result     |
+| DDRx  | PORTx |      Mode      |
 | :---: | :---: | :------------: |
 |   0   |   0   | high impedance |
-|   0   |   1   |     Out 0      |
-|   1   |   0   |    Pull-up     |
+|   0   |   1   |    Pull-up     |
+|   1   |   0   |     Out 0      |
 |   1   |   1   |     Out 1      |
 
 ```
@@ -79,7 +79,7 @@ PIN is use for reading the value in on IN register
 
 Usage:
 
-```
+```asm
 IN R16, PINC  ; Read in register C and store it in R16 register
 ```
 
@@ -151,10 +151,9 @@ You can also read from it as usual.
 IN R16, PINC
 ```
 
-
 ## SBI and CBI Instructions
 
-### `SBI` (Set Bit in IO register)
+### SBI (Set Bit in IO register)
 
 This is used for setting a bit in the register. Useful for setting just one bit and not have to set all of it like `OUT`.
 
@@ -171,7 +170,7 @@ SBI PORTD, 0        ; PORTD.0 = 1, set PORTD register data position 0 to 1
 SBI DDRC, 5         ; DDRC.5 = 1
 ```
 
-### `CBI` (Clear Bit in IO register)
+### CBI (Clear Bit in IO register)
 
 This is used for clearing a bit in the IO register, it is useful like SBI.
 
@@ -190,7 +189,7 @@ CBI DDRC, 5         ; DDRC.5 = 0
 
 ## SBIC and SBIS Instructions
 
-### `SBIC` (Skip if Bit in IO register Cleared)
+### SBIC (Skip if Bit in IO register Cleared)
 
 Usage:
 
@@ -202,11 +201,11 @@ Example:
 
 ```asm
 SBIC PIND, 0        ; Skip next instruction if PIND.0 == 0
-INC  R20            ; This might not be run
+INC  R20
 LDI  R19, 0x23
 ```
 
-### `SBIS` (Skip if Bit in IO register Set)
+### SBIS (Skip if Bit in IO register Set)
 
 Usage:
 
@@ -216,7 +215,7 @@ SBIS IO_REG, bit    ; if (IO_REG.bit == 1) skip next instruction
 
 Example:
 
-```
+```asm
 SBIS PIND, 0        ; skip next instruction if PIND.0 == 1
 INC  R20
 LDI  R19, 0x23

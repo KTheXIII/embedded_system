@@ -1,10 +1,10 @@
-# Assembly notes for Embedded System
+# AVR Assembly notes for Embedded System
 
-Here contains the guide on how to assemble your assembly code.
+Here contains the guide on how to assemble your assembly code for AVR.
 
 ## Table of content
 
-- [Assembly notes for Embedded System](#assembly-notes-for-embedded-system)
+- [AVR Assembly notes for Embedded System](#avr-assembly-notes-for-embedded-system)
   - [Table of content](#table-of-content)
   - [Assembler and Programmer](#assembler-and-programmer)
   - [Resources](#resources)
@@ -53,6 +53,12 @@ brew install avrdude
 
 ```
 /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude
+```
+
+`avrdude.conf` included in Arduino is usually at
+
+```
+Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf
 ```
 
 This is only true if you've installed Arduino in the `/Applications` directory.
@@ -133,7 +139,7 @@ You'll need to replace `<device/port>` with your device and `<path/to/hex>` for 
 
 **Using avrdude included in arduino**
 
-The procedure is the same as the installed one but you'll need to include the `avrdude.conf` file included.
+The procedure is the same as the installed one but you'll need to include the `avrdude.conf` file that's included.
 
 Example:
 
