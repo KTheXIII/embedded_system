@@ -1,2 +1,6 @@
 # workspace configs
 .vscode
+
+# generated files
+*.hex
+*.obj
