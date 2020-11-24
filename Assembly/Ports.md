@@ -1,25 +1,5 @@
 # AVR using ports in Assembly
 
-## Table of Contents
-
-- [AVR using ports in Assembly](#avr-using-ports-in-assembly)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-      - [Instructions related to Ports](#instructions-related-to-ports)
-      - [Boolean instructions](#boolean-instructions)
-    - [Ports](#ports)
-      - [Structure of IO pins (Example Mega32/Mega16)](#structure-of-io-pins-example-mega32mega16)
-      - [Example 1](#example-1)
-      - [Example 2](#example-2)
-      - [Example: Input](#example-input)
-      - [Pull-up resistor](#pull-up-resistor)
-  - [SBI and CBI Instructions](#sbi-and-cbi-instructions)
-    - [SBI (Set Bit in IO register)](#sbi-set-bit-in-io-register)
-    - [CBI (Clear Bit in IO register)](#cbi-clear-bit-in-io-register)
-  - [SBIC and SBIS Instructions](#sbic-and-sbis-instructions)
-    - [SBIC (Skip if Bit in IO register Cleared)](#sbic-skip-if-bit-in-io-register-cleared)
-    - [SBIS (Skip if Bit in IO register Set)](#sbis-skip-if-bit-in-io-register-set)
-
 ## Introduction
 
 `DDRx`: use for defining direction of the port (input/output)
@@ -113,7 +93,7 @@ L1:   LDI     R16,0x55    ; R16 = 0x55 = 0b01010101
       CALL    DELAY       ; Delay subroutine
       LDI     R16,0xAA    ; R16 = 0xAA = 0b10101010
       OUT     PORTB,R16   ; Put 0xAA on port B pins
-      CALL    DELAY       ; Delay subroutune
+      CALL    DELAY       ; Delay subroutine
       RJMP    L1
 ```
 
@@ -122,14 +102,14 @@ L1:   LDI     R16,0x55    ; R16 = 0x55 = 0b01010101
 This code gets the data present at the pins of PORT C and sends it to PORT B.
 
 ```asm
-      LDI R16, 0x00
+      LDI R16,  0x00
       OUT DDRC, R16     ; Set PORT C as an input
-      LDI R16, 0xFF
+      LDI R16,  0xFF
       OUT DDRB, R16     ; Set PORT B as an output
 
 L2:   IN  R16, PINC     ; Read data from IN register on PORT C
-      LDI R17, 5
-      ADD R16, R17      ; Add value 5 to R16
+      LDI R17,   5
+      ADD R16,   R17      ; Add value 5 to R16
       OUT PORTB, R16    ; Write it to PORT B
       RJMP L2           ; Jump back to L2 for looping
 ```
@@ -139,9 +119,9 @@ L2:   IN  R16, PINC     ; Read data from IN register on PORT C
 You can configure a pin into pull-up state by setting the DDR to 0 and PORT to 1.
 
 ```asm
-LDI R16, 0x00
-OUT DDRC, R16
-LDI R16, 0xFF
+LDI R16,   0x00
+OUT DDRC,  R16
+LDI R16,   0xFF
 OUT PORTC, R16
 ```
 
@@ -167,7 +147,7 @@ Example:
 
 ```asm
 SBI PORTD, 0        ; PORTD.0 = 1, set PORTD register data position 0 to 1
-SBI DDRC, 5         ; DDRC.5 = 1
+SBI DDRC,  5        ; DDRC.5 = 1
 ```
 
 ### CBI (Clear Bit in IO register)
@@ -184,7 +164,7 @@ Example:
 
 ```asm
 CBI PORTD, 0        ; PORTD.0 = 0
-CBI DDRC, 5         ; DDRC.5 = 0
+CBI DDRC,  5        ; DDRC.5 = 0
 ```
 
 ## SBIC and SBIS Instructions

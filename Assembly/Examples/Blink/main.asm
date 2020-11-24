@@ -11,17 +11,18 @@
 
   .ORG PM_START
 
+; https://dav3.net/1556/
 delay_100ms:
-  LDI R18, BYTE3(16 * 1000 * 100 / 5)
+  LDI R18, BYTE3(16 * 1000 * 100 / 5) ; 5 is the cycle count for instructions below
   LDI R17, HIGH(16 * 1000 * 100 / 5)
   LDI R16, LOW(16 * 1000 * 100 / 5)
 
-  SUBI R16, 1
-  SBCI R17, 0
-  SBCI R18, 0
-  BRCC PC - 3
+  SUBI R16, 1 ; 1 cycle
+  SBCI R17, 0 ; 1 if false (no skip), 2 if true, skip next
+  SBCI R18, 0 ; 1 if false (no skip), 2 if true, skip next
+  BRCC PC - 3 ; 1 if false, 2 if true
 
-  RET
+  RET         ; 4 cycles
 
 init:
   ; Set stack pointer to point at the end of RAM.
