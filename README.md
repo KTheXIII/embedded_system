@@ -1,3 +1,3 @@
 # Embedded System notes
 
-Learning Embbedded System.
+Learning Embedded System.
