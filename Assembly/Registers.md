@@ -6,6 +6,14 @@
   - [Table of Contents](#table-of-contents)
   - [General purpose registers](#general-purpose-registers)
   - [SREQ (Status Register)](#sreq-status-register)
+    - [I: Global Interrupt Enable](#i-global-interrupt-enable)
+    - [T: Copy Storage](#t-copy-storage)
+    - [H: Half Carry Flag](#h-half-carry-flag)
+    - [S: Sign Flag, S = N xor V](#s-sign-flag-s--n-xor-v)
+    - [V: Tow's Compliment Overflow Flag](#v-tows-compliment-overflow-flag)
+    - [N: Negative Flag](#n-negative-flag)
+    - [Z: Zero Flag](#z-zero-flag)
+    - [C: Carry Flag](#c-carry-flag)
   - [I/O Register](#io-register)
     - [DDR (Data Direction Register)](#ddr-data-direction-register)
     - [PORT](#port)
@@ -14,7 +22,7 @@
 
 ## General purpose registers 
 
-Registers are speical storages with 8-bit capacity and they look like this
+Registers are special storages with 8-bit capacity and they look like this
 
 ```
 [ 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 ]
@@ -28,9 +36,44 @@ In AVR there are 32 registers, named `R0` to `R31`.
 
 ## SREQ (Status Register)
 
-The Status Register (SREQ) contains information about the result of the most recently executed arithmetic instruction.
+The Status register contains information about the result of the most recently executed arithmetic instruction. The Status register is updated after all the Arithmetic Logical Unit (ALU) operations. ([Source: Microchip Developer Help](https://microchipdeveloper.com/8avr:status))
 
-SREQ is updated after any of ALU operations by hardware.
+```
+      [ I | T | H | S | V | N | Z | C ]
+bit:    7   6   5   4   3   2   1   0
+```
+
+### I: Global Interrupt Enable
+
+The Global Interrupt Enable bit must be set for the interrupts to be enabled.
+
+### T: Copy Storage
+
+TODO
+
+### H: Half Carry Flag
+
+TODO
+
+### S: Sign Flag, S = N xor V
+
+TODO
+
+### V: Tow's Compliment Overflow Flag
+
+TODO
+
+### N: Negative Flag
+
+This indicates a negative result in an arithmetic or logic operation.
+
+### Z: Zero Flag
+
+This indicates a zero result in an arithmetic or logic operation.
+
+### C: Carry Flag
+
+This indicates a carry in an arithmetic or logic operation.
 
 ## I/O Register
 
@@ -80,7 +123,7 @@ DDR and PORT are used together to achieve different mode of the GPIO (General Pu
 |   1   |   0   |     Out 0      |
 |   1   |   1   |     Out 1      |
 
-there `x` is the port group, such as A, B, C, etc...
+where `x` is the port group, such as A, B, C, etc...
 
 ### PIN
 
@@ -89,7 +132,7 @@ This is the IN register, it stores the value of the PORT group. It's used with `
 Example:
 
 ```asm
-IN R16, PORTC
+IN R16, PINC
 ```
 
 Copy the value in `IN` register on PORT group C.

@@ -61,7 +61,7 @@ DDRx    ; Data Direction Register
 use for setting if it's an input or an output. This is combined with `PORTx`
 
 ```
-PORTx   ; PORT regsiter
+PORTx   ; PORT register
 ```
 
 | DDRx  | PORTx |      Mode      |

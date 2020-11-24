@@ -63,7 +63,7 @@ Notes for AVR assembly instructions.
 
 LDI is used for loading value into `Rd`, where `R` is the keyword for register and `d` is the destination (register number).
 
-Usage:
+Syntax:
 
 ```asm
 LDI Rd, k     ; Rd is the destination register
@@ -86,7 +86,7 @@ LDI R23, 0x27 ; load value 0x27 into Register 23
 
 ADD is used for adding 2 values
 
-Usage:
+Syntax:
 
 ```asm
 ADD Rd, Rs    ; Rd, destination register
@@ -181,7 +181,7 @@ A **Jump** instruction changes the **Program Counter** and cause the **CPU** to 
 
 `PC`: Program Counter. The CPU is always incrementing the PC.
 
-Usage:
+Syntax:
 
 This load `k`(contain instruction address) into `PC`. 
 
@@ -212,7 +212,7 @@ We can label the location where we want to jump using a unique name followed by 
 
 JMP address is in 16-bit address space. THis is the same as CALL.
 
-RJMP and RCALL use a relative placement from the current position. These instructions takes less space. 
+`RJMP` and `RCALL` use a relative placement from the current position. These instructions takes less space. 
 
 #### `JMP`
 
@@ -228,7 +228,7 @@ The call instruction needs a stack to work since it is calling a subroutine and 
 
 The stack data-structure is a LIFO (**L**ast **I**n, **F**irst **O**ut), this mean that the first data being pushed onto the stack will need to pop all the data on top of it before it can be read.
 
-![Illusttration of Last In, First Out](https://upload.wikimedia.org/wikipedia/commons/b/b4/Lifo_stack.png)
+![Illustration of Last In, First Out](https://upload.wikimedia.org/wikipedia/commons/b/b4/Lifo_stack.png)
 
 The instructions for stack are PUSH and POP.
 
@@ -318,7 +318,7 @@ MOV R0, R16
 ```asm
 .BYTE   ; reserve space for one byte in RAM
 .CSEG   ; the next instructions relates to the program memory
-.DEF    ; define a symbolic name for a regsiter
+.DEF    ; define a symbolic name for a register
 ```
 
 ### Assembler Directives: .EQU and .DEF

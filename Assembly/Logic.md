@@ -1,6 +1,8 @@
 # AVR Logic Instructions
 
-Logical instructions and example usage.
+Logical instructions and example usage. 
+
+**NOTE**: More info about different flags are in [Registers.md](/Assembly/Registers.md#sreq-status-register).
 
 ## Table of Contents
 
@@ -15,7 +17,7 @@ Logical instructions and example usage.
   - [NEG (Two's Complement)](#neg-twos-complement)
   - [SWAP (Swap Nibbles)](#swap-swap-nibbles)
   - [LSL (Logical Shift Left)](#lsl-logical-shift-left)
-  - [LSR (Logcial Shift Right)](#lsr-logcial-shift-right)
+  - [LSR (Logical Shift Right)](#lsr-logical-shift-right)
   - [ASR (Arithmetic Shift Right)](#asr-arithmetic-shift-right)
   - [ROL (Rotate Left through Carry)](#rol-rotate-left-through-carry)
   - [ROR (Rotate Right through Carry)](#ror-rotate-right-through-carry)
@@ -26,7 +28,7 @@ Require 2 registers.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 AND Rd, Rr
@@ -40,7 +42,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 ANDI Rd, k
@@ -54,7 +56,7 @@ Require 2 registers.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 OR Rd, Rr
@@ -68,7 +70,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 ORI Rd, k
@@ -82,7 +84,7 @@ Require 2 registers.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 EOR Rd, k
@@ -100,7 +102,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 COM Rd
@@ -118,7 +120,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 NEG Rd
@@ -136,7 +138,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 SWAP Rd
@@ -152,7 +154,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 LSL Rd
@@ -160,7 +162,7 @@ LSL Rd
 
 `Rd` is the destination and also the source.
 
-## LSR (Logcial Shift Right)
+## LSR (Logical Shift Right)
 
 This instruction shifts the bits to the right. Example: `0b00000010 -> 0b00000001`.
 
@@ -168,7 +170,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 LSR Rd
@@ -178,13 +180,13 @@ LSR Rd
 
 ## ASR (Arithmetic Shift Right)
 
-Shifts all bits in `Rd` one place to the right. Bit 7 is held constant. Bit 0 is loaded into the C (Carry) Flag of the `SREG`. This operation effectively divides a singed value by two without chaning its sign. The Carry Flag can be use to round the result. (Source: AVR Instruction Set Manual)
+Shifts all bits in `Rd` one place to the right. Bit 7 is held constant. Bit 0 is loaded into the C (Carry) Flag of the `SREG`. This operation effectively divides a singed value by two without changing its sign. The Carry Flag can be use to round the result. (Source: AVR Instruction Set Manual)
 
 Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 ASR Rd
@@ -194,13 +196,13 @@ ASR Rd
 
 ## ROL (Rotate Left through Carry)
 
-Shifts all bits in `Rd` one place to the left. The C Flag is shifted into bit 0 of `Rd`. Bit 7 is shifted into the C Flag. This operation, combined with `LSL`, effectively multiplies multi-byte signed and unsiged values by two. (Source: AVR Instruction Set Manual)
+Shifts all bits in `Rd` one place to the left. The C Flag is shifted into bit 0 of `Rd`. Bit 7 is shifted into the C Flag. This operation, combined with `LSL`, effectively multiplies multi-byte signed and unsigned values by two. (Source: AVR Instruction Set Manual)
 
 Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 ROL Rd
@@ -216,7 +218,7 @@ Require one register.
 
 Cycles: 1
 
-Usage:
+Syntax:
 
 ```asm
 ROR Rd
