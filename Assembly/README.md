@@ -184,3 +184,6 @@ For the `Arguments` field you'll need to include this
 `<device/port>` is your device. To check on Windows 10, open your `Device Manager` (press windows key and type device manager and it'll show up). The device is listed in the **Ports (COM & LPT)**, expand it to see more. Press reset twice to make it show up. Replace `<device/port>` with the value that's showing up. 
 
 Note: Pressing reset makes the board go into programming mode.
+
+
+## Test
