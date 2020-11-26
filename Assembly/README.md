@@ -95,11 +95,7 @@ Arduino\hardware\tools\avr\etc\avrdude.conf
 
 To assemble the code you'll need the definitions for the chips you're using. The [AVR repo](https://github.com/DarkSector/AVR) have the definitions generated with Atmel Studio 7 in the `/asm/include` directory. You'll need to copy the correct definition for your chips.
 
-Example: If we're using Atmega32u4, we'll need to get this `m32U4def.inc` file. The avra assembler doesn't have Atmega32u4 listed in their device list. You can circumvent by changing the `.device` value to `ATmega328`, but this is kind of a hack 
-
-```
-.device Atmega328
-```
+Example: If we're using ATmega32u4, we'll need to get this `m32U4def.inc` file. The latest version in the repo should have ATmega32U4 as supported device.
 
 If you want to know which device are supported just do
 
