@@ -11,6 +11,9 @@ Here contains the guide on how to assemble your assembly code for AVR.
     - [Articles](#articles)
   - [Development Environment](#development-environment)
     - [macOS](#macos)
+      - [Install avra using homebrew](#install-avra-using-homebrew)
+      - [Install avrdude using homebrew](#install-avrdude-using-homebrew)
+      - [avrdude in Arduino](#avrdude-in-arduino)
     - [Linux](#linux)
     - [Windows](#windows)
   - [Assemble and Program](#assemble-and-program)
@@ -24,9 +27,9 @@ Here contains the guide on how to assemble your assembly code for AVR.
 
 ## Assembler and Programmer
 
-[avra](https://github.com/Ro5bert/avra) can be use as assembler. But you'll need to include definitions for different chips. Check [AVR repo](https://github.com/DarkSector/AVR) for definitions. If you have Atmel Studio already you can just use the generated definitions.
+[avra](https://github.com/Ro5bert/avra) can be used as assembler. But you'll need to include definitions for different chips. Check [AVR repo](https://github.com/DarkSector/AVR) for definitions. If you have Atmel Studio already you can just use the generated definitions.
 
-[avrdude](https://www.nongnu.org/avrdude/) can be use for programming the chip. You can also use avrdude that's included in Arduino.
+[avrdude](https://www.nongnu.org/avrdude/) can be used for programming the chip. You can also use avrdude that's included in [Arduino](https://www.arduino.cc).
 
 ## Resources
 
@@ -34,6 +37,7 @@ Here contains the guide on how to assemble your assembly code for AVR.
 
 ### Articles
  - [Beginners Programming in AVR Assembler](http://www.avr-asm-tutorial.net/avr_en/beginner/index.html)
+ - [Atmel AVR instruction set](https://en.wikipedia.org/wiki/Atmel_AVR_instruction_set)
 
 ## Development Environment
 
@@ -41,21 +45,29 @@ Here contains the guide on how to assemble your assembly code for AVR.
 
 On macOS you can use [brew](https://brew.sh) to install `avra` and `avrdude`. For `avrdude` you can also download [Arduino](https://www.arduino.cc) and use the one that's included.
 
+I would recommend to install avra from source since it'll contain the latest version.
+
+#### Install avra using homebrew
+
 ```
 brew install avra
 ```
+
+#### Install avrdude using homebrew
 
 ```
 brew install avrdude
 ```
 
-`avrdude` in Arduino. The path is usually at
+#### avrdude in Arduino
+
+If you're using avrdude that's included in Arduino, the path is usually at
 
 ```
 /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude
 ```
 
-`avrdude.conf` included in Arduino is usually at
+You'll also need to include the `avrdude.conf` file, the path is usually at 
 
 ```
 Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf
@@ -95,9 +107,7 @@ Arduino\hardware\tools\avr\etc\avrdude.conf
 
 To assemble the code you'll need the definitions for the chips you're using. The [AVR repo](https://github.com/DarkSector/AVR) have the definitions generated with Atmel Studio 7 in the `/asm/include` directory. You'll need to copy the correct definition for your chips.
 
-Example: If we're using ATmega32u4, we'll need to get this `m32U4def.inc` file. The latest version in the repo should have ATmega32U4 as supported device.
-
-If you want to know which device are supported just do
+The latest version of [avra](https://github.com/Ro5bert/avra) should have ATmega32U4 as supported device. If you want to know which device are supported just do
 
 ```
 avra --devices
@@ -109,7 +119,7 @@ In your own code you need to include the `m32U4def.inc` file like this at the to
 .INCLUDE "m32U4def.inc"
 ```
 
-This make sure you have access to the definitions such as PORTx, DDRx and such.
+This make sure you have access to the definitions such as PORTx, DDRx and PINx.
 
 #### Program
 
@@ -121,7 +131,7 @@ Find out what port your device is connected to. You can use the following comman
 ls /dev/tty.* 
 ```
 
-If your device is not showing up then you'll need to pull reset to ground twice. And run the command again you'll see a device with this naming `/dev/tty.usbmodem*`, copy this name.
+If your device is not showing up then you'll need to pull reset to ground twice. And run the command again and you'll see a device with this naming `/dev/tty.usbmodem*`, copy this name.
 
 **Using installed avrdude**
 
@@ -135,7 +145,7 @@ You'll need to replace `<device/port>` with your device and `<path/to/hex>` for 
 
 **Using avrdude included in arduino**
 
-The procedure is the same as the installed one but you'll need to include the `avrdude.conf` file that's included.
+The procedure is the same as the installed one but you'll need to include the `avrdude.conf` file.
 
 Example:
 
@@ -163,7 +173,7 @@ On windows you should just use Atmel Studio 7 as the assembler.
 
 #### Program
 
-To program the chip go to `Tools -> External Tools...` in Atmel Studio. This opens up a configuration window for **External Tools**. You need to add a new configuration and name it in the tile field. This can be anything, but it's best to name it to the chip/board you're trying to program.
+To program the chip go to `Tools -> External Tools...` in Atmel Studio. This opens up a configuration window for **External Tools**. You need to add a new configuration and name it in the title field. This can be anything, but it's best to name it to the chip/board you're trying to program.
 
 Example: We're programming an Arduino Leonardo, the title will be Arduino Leonardo.
 

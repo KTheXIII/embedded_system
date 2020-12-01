@@ -139,7 +139,7 @@ For AVR there is no `ADDI` (ADD Immediate) instruction, `SUBI` (SUB Immediate) e
 Example:
 
 ```asm
-LDI R16, 10   ; Load value 10 into R16
+LDI R16,  10  ; Load value 10 into R16
 SUBI R16, -5  ; SUB R16 with -5, R16 = 15
 SUBI R16, -5  ; SUB R16 with -5, R16 = 20
 ```
