@@ -2,10 +2,10 @@
 
 Here contains the guide on how to assemble your assembly code for AVR.
 
-## Table of content
+## Table of Contents
 
 - [AVR Assembly notes for Embedded System](#avr-assembly-notes-for-embedded-system)
-  - [Table of content](#table-of-content)
+  - [Table of Contents](#table-of-contents)
   - [Assembler and Programmer](#assembler-and-programmer)
   - [Resources](#resources)
     - [Articles](#articles)
@@ -16,14 +16,17 @@ Here contains the guide on how to assemble your assembly code for AVR.
       - [avrdude in Arduino](#avrdude-in-arduino)
     - [Linux](#linux)
     - [Windows](#windows)
+      - [avrdude in Arduino](#avrdude-in-arduino-1)
   - [Assemble and Program](#assemble-and-program)
     - [macOS](#macos-1)
       - [Assemble](#assemble)
       - [Program](#program)
     - [Linux](#linux-1)
-    - [Windows](#windows-1)
       - [Assemble](#assemble-1)
       - [Program](#program-1)
+    - [Windows](#windows-1)
+      - [Assemble](#assemble-2)
+      - [Program](#program-2)
 
 ## Assembler and Programmer
 
@@ -40,6 +43,8 @@ Here contains the guide on how to assemble your assembly code for AVR.
  - [Atmel AVR instruction set](https://en.wikipedia.org/wiki/Atmel_AVR_instruction_set)
 
 ## Development Environment
+
+This section is about setting up a development environment, this cover what program needs to be installed.
 
 ### macOS
 
@@ -85,6 +90,8 @@ For avra you can also install from source, follow the [Build guide](https://gith
 
 For Windows I would just recommend you to install [Atmel Studio 7](https://www.microchip.com/mplab/microchip-studio) and download [Arduino](https://www.arduino.cc).
 
+#### avrdude in Arduino
+
 `avrdude` is in this path in Arduino folder
 
 ```
@@ -100,6 +107,8 @@ Arduino\hardware\tools\avr\etc\avrdude.conf
 ```
 
 ## Assemble and Program
+
+This section cover how to assemble and program the assembly code.
 
 ### macOS
 
@@ -135,7 +144,7 @@ If your device is not showing up then you'll need to pull reset to ground twice.
 
 **Using installed avrdude**
 
-You can use this command for avrdude to program the the chip.
+You can use this command for avrdude to program the chip.
 
 ```
 avrdude -v -p atmega32u4 -c avr109 -P <device/port> -b 57600 -D -U flash:w:<path/to/hex>:i
@@ -163,7 +172,19 @@ Example:
 
 ### Linux
 
-TODO
+On Linux the procedure is almost as macOS.
+
+#### Assemble
+
+#### Program
+
+To check which port the device is connected to you can use the following command
+
+```
+ls /dev/tty*
+```
+
+The name will show upp differently depending on what board you're using, but for an Arduino Micro it'll show up with something like this `/dev/ttyACM*`.
 
 ### Windows
 

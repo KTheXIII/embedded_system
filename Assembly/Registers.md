@@ -19,6 +19,7 @@
     - [PORT](#port)
     - [DDR and PORT](#ddr-and-port)
     - [PIN](#pin)
+  - [X, Y, Z Register Pairs (Pointer-Register)](#x-y-z-register-pairs-pointer-register)
 
 ## General purpose registers 
 
@@ -136,3 +137,7 @@ IN R16, PINC
 ```
 
 Copy the value in `IN` register on PORT group C.
+
+## X, Y, Z Register Pairs (Pointer-Register)
+
+The register pairs R26:27, R28:29 and R30:R31 have an extra special role. It is so important that these pairs have extra names in assembler: X, Y, and Z. These pairs are 16-bit pointer registers, able to point to addresses with max. 16-bit into SRAM locations or into locations in program memory (Flash Memory).
