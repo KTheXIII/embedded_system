@@ -5,3 +5,7 @@
 *.hex
 *.obj
 *.bin
+*.out
+*.o
+*.elf
+*.icloud
