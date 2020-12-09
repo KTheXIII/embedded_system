@@ -111,7 +111,7 @@ LDI R16, 0xFF     ; Set ones into R16
 OUT PORTC, R16    ; Set R16 into PORTC register
 ```
 
-This writes value `0xFF` into the PORT group C.
+This writes value `0xFF` into the `PORT` group `C`.
 
 ### DDR and PORT
 
@@ -141,3 +141,22 @@ Copy the value in `IN` register on PORT group C.
 ## X, Y, Z Register Pairs (Pointer-Register)
 
 The register pairs R26:27, R28:29 and R30:R31 have an extra special role. It is so important that these pairs have extra names in assembler: X, Y, and Z. These pairs are 16-bit pointer registers, able to point to addresses with max. 16-bit into SRAM locations or into locations in program memory (Flash Memory).
+
+Example: If we have a text in memory we can fetch it using the pointer register.
+
+We have a string stored somewhere in the memory
+
+```asm
+hello_world_str:
+  .DB "Hello, World!",0
+```
+
+We can get the memory location of the first character by using 2 registers. The memory address is in 16-bit so we need to split them up. We can use `LOW` to get the low byte of the memory and `HIGH` on the high byte of the memory.
+
+```asm
+; Get the pointer to the memory location
+LDI XL, LOW(hello_world_str << 1)     ; Address * 2
+LDI XH, HIGH(hello_world_str << 1)    ; Address * 2
+```
+
+The program memory is organized word-wise the least significant bit selects the lower or higher byte (0=lower byte, 1=higher byte). The original address must be multiplied by 2 and access is limited to 15-bit or 32 kB program memory. ([Source: AVR-Assembler-Tutorial](http://www.avr-asm-tutorial.net/avr_en/beginner/REGISTER.html))
