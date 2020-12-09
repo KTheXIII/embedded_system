@@ -17,6 +17,7 @@ This contains notes on how to install `avr-gcc` and compile the code. Head to [D
       - [Compile](#compile)
       - [Program](#program)
     - [Linux (TODO)](#linux-todo-1)
+      - [Program](#program-1)
     - [Windows (TODO)](#windows-todo)
 
 ## Resources
@@ -112,6 +113,16 @@ avrdude -v -p atmega32u4 -c avr109 -P <usb_port> -b 115200 -D -U flash:w:<hex_fi
 ### Linux (TODO)
 
 TODO
+
+#### Program
+
+To check which port the device is connected to you can use the following command
+
+```
+ls /dev/tty*
+```
+
+The name will show upp differently depending on what board you're using, but for an Arduino Micro it'll show up with something like this `/dev/ttyACM*`
 
 ### Windows (TODO)
 

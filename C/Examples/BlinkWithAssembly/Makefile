@@ -8,6 +8,9 @@ rebuild: clean all
 # For macOS only
 USBPORT+=$(shell ls /dev/tty.usbmodem*)
 
+# For Linux only
+# USBPORT+=$(shell ls /dev/ttyACM*)
+
 main.hex: main.elf
 	avr-objcopy -O ihex -j .text -j .data main.elf main.hex
 
