@@ -27,6 +27,7 @@ These are the resources for getting the software and guide.
 - [Linux/macOS/Windows](https://blog.podkalicki.com/how-to-compile-and-burn-the-code-to-avr-chip-on-linuxmacosxwindows/)
 - [crosspack](https://www.obdev.at/products/crosspack/index.html)
 - [AVR Options](https://gcc.gnu.org/onlinedocs/gcc/AVR-Options.html#AVR-Options)
+- [avr-gcc](https://github.com/topics/avr-gcc) topic on Github
 
 ## Development Environment
 

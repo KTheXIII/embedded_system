@@ -1,6 +1,6 @@
-# Blink in C
+# Blink LED C mixing with Assembly
 
-This project can be build and upload using `make`. 
+Assembly handles the delay routines.
 
 You can use `make` to compile and upload the code.
 
@@ -15,18 +15,14 @@ If you're not sure how to install check the [README](/C/Examples/Blink/README.md
 
 ## Compile
 
-You can compile by running
-
 ```
 make
 ```
 
 ## Program
 
-To program the board you can use
-
 ```
 make install
 ```
 
-**Note**: This only works if there's only one device connected.
+**Note**: You need press reset (on some board you need to press it twice) to put the board in programming mode.
