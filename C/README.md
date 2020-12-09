@@ -84,7 +84,7 @@ avr-gcc -Wall -g -Os -mmcu=<device> <file>
 avr-objcopy -j .text -j .data -O ihex <object_file> <output_name>.hex
 ```
 
-`<object_file`: This is the generated object file when you ran `avr-gcc`, example output `main.o`
+`<object_file`: This is the generated object file when you ran `avr-gcc`, example object file `main.o`
 
 `<output_name>`: This can be whatever, but it's best to name it the same as the input file with extension `.hex`, example: `main.hex`
 
@@ -101,10 +101,10 @@ If the device is not showing you need to put it into programming mode. To do thi
 We can now program the device by using `avrdude`
 
 ```
-avrdude -v -p atmega32u4 -c avr109 -P <device_port> -b 115200 -D -U flash:w:<hex_file>:i
+avrdude -v -p atmega32u4 -c avr109 -P <usb_port> -b 115200 -D -U flash:w:<hex_file>:i
 ```
 
-`<device_port>`: This is the port the device is connected to.
+`<usb_port>`: This is the port the device is connected to.
 
 `<hex_file>`: This is the output hex file when you ran `avr-objcopy`
 
