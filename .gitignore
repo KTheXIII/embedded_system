@@ -8,5 +8,8 @@
 *.out
 *.o
 *.elf
-*.icloud
 *.lst
+
+# macOS files
+.DS_Store
+*.icloud
