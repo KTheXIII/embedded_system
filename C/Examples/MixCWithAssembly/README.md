@@ -1,4 +1,4 @@
-# Blink LED C mixing with Assembly
+# Blink LED using C mixing with Assembly
 
 Assembly handles the delay routines.
 
