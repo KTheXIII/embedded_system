@@ -1,5 +1,7 @@
-CC=avr-gcc
-CFLAGS= -Wall -g -mmcu=atmega32u4 -I./src
+WORKDIR = ./src
+CC = avr-gcc
+CFLAGS = -Wall -g -mmcu=atmega32u4 -I$(WORKDIR) -Os
+MCU = atmega32u4
 
 all: main.hex
 
@@ -12,22 +14,23 @@ USBPORT+=$(shell ls /dev/tty.usbmodem*)
 # USBPORT+=$(shell ls /dev/ttyACM*)
 
 main.hex: main.elf
-	avr-objcopy -O ihex -j .text -j .data main.elf main.hex
+	avr-objcopy -O ihex -j .text -j .data $^ $@
 
 # Linking
 main.elf: main.o delay_asm.o
-	$(CC) $(CFLAGS) main.o delay_asm.o -o main.elf
+	$(CC) $(CFLAGS) $^ -o $@
 
 # Compile to object file
-main.o: ./src/main.c
-	$(CC) $(CFLAGS) -Os -c ./src/main.c
+%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-delay_asm.o: ./src/delay/delay.h ./src/delay/delay_asm.S
-	$(CC) $(CFLAGS) -c ./src/delay/delay_asm.S
+# Compile to object file
+delay_asm.o: src/delay/delay.h src/delay/delay_asm.S
+	$(CC) $(CFLAGS) -c src/delay/delay_asm.S -o $@
 
 # Upload to the board
 install: main.hex
-	avrdude -v -p atmega32u4 -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:./main.hex:i
+	avrdude -v -p $(MCU) -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:$^:i
 
 clean:
-	rm -f *.hex *.o *.elf
+	rm -f *.hex *.o *.elf *.lst
