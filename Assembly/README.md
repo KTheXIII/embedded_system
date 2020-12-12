@@ -114,17 +114,27 @@ This section cover how to assemble and program the assembly code.
 
 #### Assemble
 
-To assemble the code you'll need the definitions for the chips you're using. The [AVR repo](https://github.com/DarkSector/AVR) have the definitions generated with Atmel Studio 7 in the `/asm/include` directory. You'll need to copy the correct definition for your chips.
+To assemble your code you need to include the definition for the device you're using like this
 
-The latest version of [avra](https://github.com/Ro5bert/avra) should have ATmega32U4 as supported device. If you want to know which device are supported just do
+```asm
+.INCLUDE "<device_definition>"
+```
+
+`<device_definition>` is the filename for the device. Check the [avra](https://github.com/Ro5bert/avra) repo in `includes` directory to find out what the filename is.
+
+Use this command for avra to find out which devices are supported.
 
 ```
 avra --devices
 ```
 
+**Example**: Using chip ATmega32U4.
+
+The latest version of [avra](https://github.com/Ro5bert/avra) should have ATmega32U4 as supported device.
+
 In your own code you need to include the `m32U4def.inc` file like this at the top
 
-```
+```asm
 .INCLUDE "m32U4def.inc"
 ```
 
