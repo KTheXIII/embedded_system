@@ -68,9 +68,9 @@ On Windows it is better to install [Atmel Studio 7](https://www.microchip.com/mp
 
 #### Compile
 
-There are 2 steps in compiling the code.
+There are 2 steps in compiling the code. The Step 1 has two version, compiling single and multiple files.
 
-**Step 1**: Compile
+**Step 1**: Compile single file
 
 ```
 avr-gcc -Wall -g -Os -mmcu=<device> <file>
@@ -79,6 +79,24 @@ avr-gcc -Wall -g -Os -mmcu=<device> <file>
 `<device>`: This is the chip you're programming, example `atmega32u4`
 
 `<file>`: This is the input file, example `main.c`
+
+We'll later get an object file to later convert to hex file for programming our board.
+
+**Step 1**: Compile multiple files
+
+To compile multiple file we can use this flag `-c` for tell the compiler to only compile but not link the binary.
+
+```
+avr-gcc -Wall -g -Os -mmcu=<device> -c <file>
+```
+
+We can run this command for any files we want and then later use it to link it together. Example if we compile `file_1` and `file_2` we can later link them together like this
+
+```
+avr-gcc -Wall -g -Os -mmcu=<device> <file_1> <file_2> -o <output_file>
+```
+
+`<output_file>` is the output filename. This is also an object file and we usually name it with extension `.elf`.
 
 **Step 2**: Convert object file to hex
 
@@ -127,7 +145,3 @@ The name will show upp differently depending on what board you're using, but for
 ### Windows (TODO)
 
 TODO
-
-<!-- ## Compile and Program using Makefile (TODO)
-
-TODO -->
