@@ -1,6 +1,8 @@
 # Blink LED using C mixing with Assembly
 
-Assembly handles the delay routines.
+Example with ATmega32U4 with 16MHz clock. The assembly code has the delay routines that we can call from in C.
+
+Check the `main.c` to change the pin being used for the LED.
 
 You can use `make` to compile and upload the code.
 
