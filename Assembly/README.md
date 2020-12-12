@@ -140,6 +140,16 @@ In your own code you need to include the `m32U4def.inc` file like this at the to
 
 This make sure you have access to the definitions such as PORTx, DDRx and PINx.
 
+To assemble this command is used
+
+```
+avra <filename>
+```
+
+`<filename>` is the name of your code file, example: `main.asm`
+
+**Note**: If you're using code from Atmel Studio that's using these `/**/`, `//` as comments style, the avra assembler won't work.
+
 #### Program
 
 To program the chip you can use `avrdude`. Assuming you've already assembled and generated the `.hex` file.
@@ -169,7 +179,7 @@ The procedure is the same as the installed one but you'll need to include the `a
 Example:
 
 ```
-<path/to/avrdude> -C <path/to/avrdude.conf>  -v -p atmega32u4 -c avr109 -P <device/port> -b 57600 -D -U flash:w:<path/to/hex>:i
+<path/to/avrdude> -C <path/to/avrdude.conf>  -v -p atmega32u4 -c avr109 -P <device/port> -b 115200 -D -U flash:w:<path/to/hex>:i
 ```
 
 `<path/to/avrdude>` is the included binary in the arduino. 
@@ -182,7 +192,7 @@ Example:
 
 ### Linux
 
-On Linux the procedure is almost as macOS.
+On Linux the procedure is almost the same as macOS.
 
 #### Assemble
 
@@ -220,4 +230,4 @@ For the `Arguments` field you'll need to include this
 
 `<device/port>` is your device. To check on Windows 10, open your `Device Manager` (press windows key and type device manager and it'll show up). The device is listed in the **Ports (COM & LPT)**, expand it to see more. Press reset twice to make it show up. Replace `<device/port>` with the value that's showing up. 
 
-Note: Pressing reset makes the board go into programming mode.
+**Note**: Pressing reset makes the board go into programming mode.
