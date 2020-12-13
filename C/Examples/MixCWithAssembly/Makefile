@@ -1,7 +1,7 @@
 WORKDIR = ./src
 CC = avr-gcc
-CFLAGS = -Wall -g -mmcu=atmega32u4 -I$(WORKDIR) -Os
 MCU = atmega32u4
+CFLAGS = -Wall -g -mmcu=$(MCU) -I$(WORKDIR) -Os
 
 all: main.hex
 

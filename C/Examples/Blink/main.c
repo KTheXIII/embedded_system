@@ -4,12 +4,12 @@
 #include <util/delay.h>
 
 int main(int argc, char const *argv[]) {
-  DDRC |= 0x80;
+  DDRB |= 0x80;
 
   while (1) {
-    PORTC |= 0x80; // 0b10000000 = 128
+    PORTB |= 0x80; // 0b10000000 = 128
     _delay_ms(250);
-    PORTC &= ~0x00;
+    PORTB &= ~0x00;
     _delay_ms(250);
   }
 

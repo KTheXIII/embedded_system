@@ -1,5 +1,6 @@
 CC=avr-gcc
-CFLAGS= -Wall -g -Os -mmcu=atmega32u4 -I./
+MCU=atmega32u4
+CFLAGS= -Wall -g -Os -mmcu=$(MCU) -I./
 
 all: main.hex
 
@@ -22,7 +23,7 @@ main.o: main.c
 
 # Upload to the board
 install: main.hex
-	avrdude -v -p atmega32u4 -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:./main.hex:i
+	avrdude -v -p $(MCU) -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:./main.hex:i
 
 clean:
 	rm -f *.o *.hex *.elf
