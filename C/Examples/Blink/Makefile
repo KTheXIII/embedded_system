@@ -1,13 +1,17 @@
-CC=avr-gcc
-MCU=atmega32u4
-CFLAGS= -Wall -g -Os -mmcu=$(MCU) -I./
+WORKDIR = ./src
+CC = avr-gcc
+MCU = atmega32u4
+CFLAGS = -Wall -g -mmcu=$(MCU) -I$(WORKDIR) -Os
 
 all: main.hex
 
 rebuild: clean all
 
 # For macOS
-USBPORT+=$(shell ls /dev/tty.usbmodem*)
+USBPORT += $(shell ls /dev/tty.usbmodem*)
+
+# For Linux only
+# USBPORT+=$(shell ls /dev/ttyACM*)
 
 # Convert to hex
 main.hex: main.elf
@@ -23,7 +27,7 @@ main.o: main.c
 
 # Upload to the board
 install: main.hex
-	avrdude -v -p $(MCU) -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:./main.hex:i
+	avrdude -v -p $(MCU) -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:$<:i
 
 clean:
 	rm -f *.o *.hex *.elf

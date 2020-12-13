@@ -30,7 +30,7 @@ delay_asm.o: src/delay/delay.h src/delay/delay_asm.S
 
 # Upload to the board
 install: main.hex
-	avrdude -v -p $(MCU) -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:$^:i
+	avrdude -v -p $(MCU) -c avr109 -P ${USBPORT} -b 115200 -D -U flash:w:$<:i
 
 clean:
 	rm -f *.hex *.o *.elf *.lst
