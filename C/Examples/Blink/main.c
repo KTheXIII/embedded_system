@@ -3,7 +3,7 @@
 #define F_CPU 16000000UL
 #include <util/delay.h>
 
-int main(int argc, char const *argv[]) {
+int main() {
   DDRC |= 0x80;
 
   while (1) {
