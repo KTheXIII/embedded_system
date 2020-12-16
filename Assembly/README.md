@@ -223,7 +223,7 @@ We then need to configure `Command`. This is the path to the `avrdude` executabl
 For the `Arguments` field you'll need to include this
 
 ```
--C <path/to/avrdude.conf>  -v -p atmega32u4 -c avr109 -P <device/port> -b 57600 -D -U flash:w:"$(ProjectDir)Debug\$(ItemFileName).hex":i
+-C <path/to/avrdude.conf>  -v -p atmega32u4 -c avr109 -P <device/port> -b 57600 -D -U flash:w:"$(ProjectDir)Debug\$(TargetName).hex":i
 ```
 
 `<path/to/avrdude.conf>` is the config that comes with arduino. 

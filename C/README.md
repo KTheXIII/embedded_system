@@ -2,6 +2,8 @@
 
 This contains notes on how to install `avr-gcc` and compile the code. Head to [Development Environment](#development-environment) for setup.
 
+For setting up an editor with intellisense check out [Editor.md](/C/Editor.md) for more info.
+
 ## Table of Contents
 
 - [C Programming for AVR](#c-programming-for-avr)
@@ -84,7 +86,7 @@ We'll later get an object file to later convert to hex file for programming our 
 
 **Step 1**: Compile multiple files
 
-To compile multiple file we can use this flag `-c` for tell the compiler to only compile but not link the binary.
+To compile multiple file we can use this flag `-c` to tell the compiler to only compile but not link the binary.
 
 ```
 avr-gcc -Wall -g -Os -mmcu=<device> -c <file>
@@ -121,8 +123,12 @@ If the device is not showing you need to put it into programming mode. To do thi
 We can now program the device by using `avrdude`
 
 ```
-avrdude -v -p atmega32u4 -c avr109 -P <usb_port> -b 115200 -D -U flash:w:<hex_file>:i
+avrdude -v -p <device> -c <prog_id> -P <usb_port> -b 115200 -D -U flash:w:<hex_file>:i
 ```
+
+`<device>`: This is your device you're programming, example: `atmega32u4`
+
+`<prog_id>`: Tell avrdude which programmer to use, example: `avr109`, `arduino`
 
 `<usb_port>`: This is the port the device is connected to.
 
