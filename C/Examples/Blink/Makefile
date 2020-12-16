@@ -9,11 +9,14 @@ all: main.hex
 
 rebuild: clean all
 
-# For macOS only
-USBPORT+=$(shell ls /dev/tty.usbmodem*)
-
-# For Linux only
-# USBPORT+=$(shell ls /dev/ttyACM*)
+# Get OS, only for macOS and Linux
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	USBPORT+=$(shell ls /dev/ttyACM*)
+endif
+ifeq ($(UNAME_S),Darwin)
+	USBPORT+=$(shell ls /dev/tty.usbmodem*)
+endif
 
 main.hex: main.elf
 	avr-objcopy -O ihex -j .text -j .data $^ $@
