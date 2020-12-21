@@ -86,13 +86,18 @@ You'll get something like this
       "name": "Mac",
       "includePath": [
         "${workspaceFolder}/**",
-        "/usr/local/Cellar/avr-gcc/x.x.x/avr/include"
+        "/usr/local/Cellar/avr-gcc/9.3.0/avr/include"
       ],
-      "defines": ["__AVR_ATmega32U4__"],
+      "defines": [
+          "__AVR_ATmega32U4__"
+      ],
       "compilerPath": "/usr/local/bin/avr-gcc",
-      "cStandard": "gnu17",
-      "cppStandard": "gnu++14",
-      "intelliSenseMode": "gcc-x64"
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64",
+      "compilerArgs": [
+        "--mmcu=atmega32u4"
+      ]
     }
   ],
   "version": 4
