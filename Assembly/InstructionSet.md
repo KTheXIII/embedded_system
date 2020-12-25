@@ -13,36 +13,36 @@ This contain some of instructions. For more read the AVR Instruction Set manual 
 
 ## Arithmetic and Logic Instructions
 
-| Mnemonic | Operands | Description                              |           |  Op   |                   | Flags       | #Clocks |
-| :------- | :------- | :--------------------------------------- | --------: | :---: | :---------------- | :---------- | :-----: |
-| ADD      | Rd, Rr   | Add without Carry                        |        Rd |   ←   | Rd + Rr           | Z,C,N,V,S,H |    1    |
-| ADC      | Rd, Rr   | Add with Carry                           |        Rd |   ←   | Rd + Rr + C       | Z,C,N,V,S,H |    1    |
-| ADIW     | Rd, K    | Add Immediate to Word                    |        Rd |   ←   | R + 1:Rd + K      | Z,C,N,V,S   |    2    |
-| SUB      | Rd, Rr   | Subract without Carry                    |        Rd |   ←   | Rd + Rr           | Z,C,N,V,S,H |    1    |
-| SUBI     | Rd, K    | Subract Immediate                        |        Rd |   ←   | Rd + K            | Z,C,N,V,S,H |    1    |
-| SBC      | Rd, Rr   | Subract with Carry                       |        Rd |   ←   | Rd - Rc - C       | Z,C,N,V,S,H |    1    |
-| SBCI     | Rd, K    | Subract Immediate with Carry             |        Rd |   ←   | Rd - K - C        | Z,C,N,V,S,H |    1    |
-| SBIW     | Rd, K    | Subract Immediate from Word              | Rd + 1:Rd |   ←   | Rd + 1:Rd -K      | Z,C,N,V,S   |    2    |
-| AND      | Rd, Rr   | Logical AND                              |        Rd |   ←   | Rd + Rr           | Z,N,V,S     |    1    |
-| ANDI     | Rd, K    | Logical AND with Immediate               |        Rd |   ←   | Rd · K            | Z,N,V,S     |    1    |
-| OR       | Rd, Rr   | Logical OR                               |        Rd |   ←   | Rd ∨ Rr           | Z,N,V,S     |    1    |
-| ORI      | Rd, K    | Logical OR with Immediate                |        Rd |   ←   | Rd ∨ K            | Z,N,V,S     |    1    |
-| EOR      | Rd, Rr   | Exclusive OR                             |        Rd |   ←   | Rd ⊕ Rr           | Z,N,V,S     |    1    |
-| COM      | Rd       | One's Complement                         |        Rd |   ←   | $FF - Rd          | Z,N,V,S     |    1    |
-| NEG      | Rd, K    | Two's Complement                         |        Rd |   ←   | $00 - Rd          | Z,N,V,S     |    1    |
-| SBR      | Rd, K    | Set Bit(s) in Register                   |        Rd |   ←   | Rd ∨ K            | Z,N,V,S     |    1    |
-| CBR      | Rd, K    | Clear Bit(s) in Register                 |        Rd |   ←   | Rd ·($FFh - K)    | Z,N,V,S     |    1    |
-| INC      | Rd       | Increment                                |        Rd |   ←   | Rd + 1            | Z,N,V,S     |    1    |
-| DEC      | Rd       | Decrement                                |        Rd |   ←   | Rd - 1            | Z,N,V,S     |    1    |
-| TST      | Rd       | Test for Zero or Minus                   |        Rd |   ←   | Rd · Rd           | Z,N,V,S     |    1    |
-| CLR      | Rd       | Clear Register                           |        Rd |   ←   | Rd ⊕ Rd           | Z,N,V,S     |    1    |
-| SER      | Rd       | Set Register                             |        Rd |   ←   | $FF               | None        |    1    |
-| MUL      | Rd, Rr   | Multiply Unsigned                        |     R1:R0 |   ←   | Rd × Rr (UU)      | Z,C         |    2    |
-| MULS     | Rd, Rr   | Multiply Signed                          |     R1:R0 |   ←   | Rd × Rr (SS)      | Z,C         |    2    |
-| MULSU    | Rd, Rr   | Multiply Signed with Unsigned            |     R1:R0 |   ←   | Rd × Rr (SU)      | Z,C         |    2    |
-| FMUL     | Rd, Rr   | Fractional Multiply Unsigned             |     R1:R0 |   ←   | Rd × Rr << 1 (UU) | Z,C         |    2    |
-| FMULS    | Rd, Rr   | Fractional Multiply Signed               |     R1:R1 |   ←   | Rd × Rr << 1 (SS) | Z,C         |    2    |
-| FMULSU   | Rd, Rr   | Fractional Multiply Signed with Unsigned |     R1:R2 |   ←   | Rd × Rr << 1 (SU) | Z,C         |    2    |
+| Mnemonic | Operands | Description                              |         |  Op   |                   | Flags       | #Clocks |
+| :------- | :------- | :--------------------------------------- | ------: | :---: | :---------------- | :---------- | :-----: |
+| ADD      | Rd, Rr   | Add without Carry                        |      Rd |   ←   | Rd + Rr           | Z,C,N,V,S,H |    1    |
+| ADC      | Rd, Rr   | Add with Carry                           |      Rd |   ←   | Rd + Rr + C       | Z,C,N,V,S,H |    1    |
+| ADIW     | Rd, K    | Add Immediate to Word                    |      Rd |   ←   | R + 1:Rd + K      | Z,C,N,V,S   |    2    |
+| SUB      | Rd, Rr   | Subract without Carry                    |      Rd |   ←   | Rd + Rr           | Z,C,N,V,S,H |    1    |
+| SUBI     | Rd, K    | Subract Immediate                        |      Rd |   ←   | Rd + K            | Z,C,N,V,S,H |    1    |
+| SBC      | Rd, Rr   | Subract with Carry                       |      Rd |   ←   | Rd - Rc - C       | Z,C,N,V,S,H |    1    |
+| SBCI     | Rd, K    | Subract Immediate with Carry             |      Rd |   ←   | Rd - K - C        | Z,C,N,V,S,H |    1    |
+| SBIW     | Rd, K    | Subract Immediate from Word              | Rd+1:Rd |   ←   | Rd + 1:Rd -K      | Z,C,N,V,S   |    2    |
+| AND      | Rd, Rr   | Logical AND                              |      Rd |   ←   | Rd + Rr           | Z,N,V,S     |    1    |
+| ANDI     | Rd, K    | Logical AND with Immediate               |      Rd |   ←   | Rd · K            | Z,N,V,S     |    1    |
+| OR       | Rd, Rr   | Logical OR                               |      Rd |   ←   | Rd ∨ Rr           | Z,N,V,S     |    1    |
+| ORI      | Rd, K    | Logical OR with Immediate                |      Rd |   ←   | Rd ∨ K            | Z,N,V,S     |    1    |
+| EOR      | Rd, Rr   | Exclusive OR                             |      Rd |   ←   | Rd ⊕ Rr           | Z,N,V,S     |    1    |
+| COM      | Rd       | One's Complement                         |      Rd |   ←   | $FF - Rd          | Z,N,V,S     |    1    |
+| NEG      | Rd, K    | Two's Complement                         |      Rd |   ←   | $00 - Rd          | Z,N,V,S     |    1    |
+| SBR      | Rd, K    | Set Bit(s) in Register                   |      Rd |   ←   | Rd ∨ K            | Z,N,V,S     |    1    |
+| CBR      | Rd, K    | Clear Bit(s) in Register                 |      Rd |   ←   | Rd ·($FFh - K)    | Z,N,V,S     |    1    |
+| INC      | Rd       | Increment                                |      Rd |   ←   | Rd + 1            | Z,N,V,S     |    1    |
+| DEC      | Rd       | Decrement                                |      Rd |   ←   | Rd - 1            | Z,N,V,S     |    1    |
+| TST      | Rd       | Test for Zero or Minus                   |      Rd |   ←   | Rd · Rd           | Z,N,V,S     |    1    |
+| CLR      | Rd       | Clear Register                           |      Rd |   ←   | Rd ⊕ Rd           | Z,N,V,S     |    1    |
+| SER      | Rd       | Set Register                             |      Rd |   ←   | $FF               | None        |    1    |
+| MUL      | Rd, Rr   | Multiply Unsigned                        |   R1:R0 |   ←   | Rd × Rr (UU)      | Z,C         |    2    |
+| MULS     | Rd, Rr   | Multiply Signed                          |   R1:R0 |   ←   | Rd × Rr (SS)      | Z,C         |    2    |
+| MULSU    | Rd, Rr   | Multiply Signed with Unsigned            |   R1:R0 |   ←   | Rd × Rr (SU)      | Z,C         |    2    |
+| FMUL     | Rd, Rr   | Fractional Multiply Unsigned             |   R1:R0 |   ←   | Rd × Rr << 1 (UU) | Z,C         |    2    |
+| FMULS    | Rd, Rr   | Fractional Multiply Signed               |   R1:R1 |   ←   | Rd × Rr << 1 (SS) | Z,C         |    2    |
+| FMULSU   | Rd, Rr   | Fractional Multiply Signed with Unsigned |   R1:R2 |   ←   | Rd × Rr << 1 (SU) | Z,C         |    2    |
 
 ## Branch Instructions
 
@@ -50,15 +50,15 @@ This contain some of instructions. For more read the AVR Instruction Set manual 
 | :------- | :------- | :---------------------------------- | --------------------: | :---: | :---------- | ----------- | :-----: |
 | RJMP     | k        | Relative Jump                       |                    PC |   ←   | PC + k + 1  | None        |    2    |
 | IJMP     |          | Indirect Jump to (Z)                |              PC(15:0) |   ←   | Z           | None        |    2    |
-|          |          | PC(21:16)                           |                     ← |   0   |             |
+|          |          |                                     |             PC(21:16) |   ←   | 0           |             |         |
 | EIJMP    |          | Extended Indirect Jump to (Z)       |              PC(15:0) |   ←   | Z           | None        |    2    |
-|          |          | PC(21:16)                           |                     ← | EIND  |             |
+|          |          |                                     |             PC(21:16) |   ←   | EIND        |             |         |
 | JMP      | k        | Jump                                |                    PC |   ←   | k           | None        |    3    |
 | RCALL    | k        | Relative Call Subroutine            |                    PC |   ←   | PC + k + 1  | None        |   3/4   |
 | ICALL    |          | Indirect Call to (Z)                |              PC(15:0) |   ←   | Z           | None        |   3/4   |
-|          |          | PC(21:16)                           |                     ← |   0   |             |
+|          |          |                                     |             PC(21:16) |   ←   | 0           |             |         |
 | EICALL   |          | Extended Indirect Call to (Z)       |              PC(15:0) |   ←   | Z           | None        |    4    |
-|          |          | PC(21:16)                           |                     ← | EIND  |             |
+|          |          |                                     |             PC(21:16) |   ←   | EIND        |             |         |
 | CALL     | k        | Call Subroutine                     |                    PC |   ←   | k           | None        |   4/5   |
 | RET      |          | Subroutine Return                   |                    PC |   ←   | STACK       | None        |   4/5   |
 | RETI     |          | Interrupt Return                    |                    PC |   ←   | STACK       | I           |   4/5   |
