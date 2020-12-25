@@ -19,7 +19,7 @@ For setting up an editor with intellisense check out [Editor.md](/C/Editor.md) f
       - [Compile](#compile)
       - [Program](#program)
     - [Linux](#linux-1)
-      - [Compile](#compile-1)
+      - [compile](#compile-1)
       - [Program](#program-1)
     - [Windows (TODO)](#windows-todo)
 
@@ -128,7 +128,7 @@ avr-objcopy -j .text -j .data -O ihex <object_file> <output_name>.hex
 Before we can program the device we need to know which `<usb_port>` the device is connected to. To do that we can use 
 
 ```
-ls \dev\tty.*
+ls /dev/tty.*
 ```
 
 If the device is not showing you need to put it into programming mode. To do this you need to press reset (on some devices you need to press it twice) and then run the command again.
@@ -196,7 +196,7 @@ avr-objcopy -j .text -j .data -O ihex <object_file> <output_name>.hex
 Before we can program the device we need to know which `<usb_port>` the device is connected to. To do that we can use 
 
 ```
-ls \dev\tty.*
+ls /dev/tty*
 ```
 The name will show upp differently depending on what board you're using, but it will most likely show up as `/dev/ttyACM*` or `/dev/ttyUSB*`
 
