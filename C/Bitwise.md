@@ -147,7 +147,7 @@ RESULT  :     10000000
 
 ### Shift Left
 
-Logical Shift Left have the property of multiplying the number by 2 when we shift the number by 1 to the left. We use this `<<` symbol to specify that we want to shift the data.
+Bitwise Shift Left have the property of multiplying the number by 2 when we shift the number by 1 to the left. We use this `<<` symbol to specify that we want to shift the data.
 
 Syntax:
 
@@ -165,7 +165,7 @@ Example:
 
 ### Shift Right
 
-Logical Shift Right have the property of dividing by 2 when shifting.
+Bitwise Shift Right have the property of dividing by 2 when shifting.
 
 Syntax:
 
@@ -191,15 +191,13 @@ DATA    :    ~10101010
 RESULT  :     01010101
 ```
 
-
-
 ### Table of Operations
 
-| Symbol | Description        | Syntax   |
-| :----- | :----------------- | :------- |
-| `&`    | Logical AND        | `a & b`  |
-| `\|`   | Logical OR         | `a \| b` |
-| `^`    | Exclusive OR (XOR) | `a ^ b`  |
-| `<<`   | Shift Left         | `a << b` |
-| `>>`   | Shift Right        | `a >> b` |
-| `~`    | One's Complement   | `~a`     |
+| Symbol | Description                    | Syntax   |
+| :----- | :----------------------------- | :------- |
+| `&`    | Bitwise AND                    | `a & b`  |
+| `\|`   | Bitwise OR                     | `a \| b` |
+| `^`    | Bitwise Exclusive OR (XOR)     | `a ^ b`  |
+| `<<`   | Shift Left                     | `a << b` |
+| `>>`   | Shift Right                    | `a >> b` |
+| `~`    | Bitwise NOT (One's Complement) | `~a`     |
