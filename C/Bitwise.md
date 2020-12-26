@@ -198,7 +198,7 @@ RESULT  :     01010101
 | Symbol | Description        | Syntax   |
 | :----- | :----------------- | :------- |
 | `&`    | Logical AND        | `a & b`  |
-| `|`    | Logical OR         | `a | b`  |
+| `\|`   | Logical OR         | `a \| b` |
 | `^`    | Exclusive OR (XOR) | `a ^ b`  |
 | `<<`   | Shift Left         | `a << b` |
 | `>>`   | Shift Right        | `a >> b` |
