@@ -18,11 +18,11 @@ This contain some of instructions. For more read the AVR Instruction Set manual 
 | ADD      | Rd, Rr   | Add without Carry                        |      Rd |   ←   | Rd + Rr           | Z,C,N,V,S,H |    1    |
 | ADC      | Rd, Rr   | Add with Carry                           |      Rd |   ←   | Rd + Rr + C       | Z,C,N,V,S,H |    1    |
 | ADIW     | Rd, K    | Add Immediate to Word                    |      Rd |   ←   | R + 1:Rd + K      | Z,C,N,V,S   |    2    |
-| SUB      | Rd, Rr   | Subract without Carry                    |      Rd |   ←   | Rd + Rr           | Z,C,N,V,S,H |    1    |
-| SUBI     | Rd, K    | Subract Immediate                        |      Rd |   ←   | Rd + K            | Z,C,N,V,S,H |    1    |
-| SBC      | Rd, Rr   | Subract with Carry                       |      Rd |   ←   | Rd - Rc - C       | Z,C,N,V,S,H |    1    |
-| SBCI     | Rd, K    | Subract Immediate with Carry             |      Rd |   ←   | Rd - K - C        | Z,C,N,V,S,H |    1    |
-| SBIW     | Rd, K    | Subract Immediate from Word              | Rd+1:Rd |   ←   | Rd + 1:Rd -K      | Z,C,N,V,S   |    2    |
+| SUB      | Rd, Rr   | Subtract without Carry                   |      Rd |   ←   | Rd + Rr           | Z,C,N,V,S,H |    1    |
+| SUBI     | Rd, K    | Subtract Immediate                       |      Rd |   ←   | Rd + K            | Z,C,N,V,S,H |    1    |
+| SBC      | Rd, Rr   | Subtract with Carry                      |      Rd |   ←   | Rd - Rc - C       | Z,C,N,V,S,H |    1    |
+| SBCI     | Rd, K    | Subtract Immediate with Carry            |      Rd |   ←   | Rd - K - C        | Z,C,N,V,S,H |    1    |
+| SBIW     | Rd, K    | Subtract Immediate from Word             | Rd+1:Rd |   ←   | Rd + 1:Rd -K      | Z,C,N,V,S   |    2    |
 | AND      | Rd, Rr   | Logical AND                              |      Rd |   ←   | Rd + Rr           | Z,N,V,S     |    1    |
 | ANDI     | Rd, K    | Logical AND with Immediate               |      Rd |   ←   | Rd · K            | Z,N,V,S     |    1    |
 | OR       | Rd, Rr   | Logical OR                               |      Rd |   ←   | Rd ∨ Rr           | Z,N,V,S     |    1    |
