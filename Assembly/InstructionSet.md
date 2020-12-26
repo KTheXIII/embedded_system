@@ -1,10 +1,60 @@
 # Instruction Set Summary Table
 
-This contain some of instructions. For more read the AVR Instruction Set manual since this is taken from there.
+Here contains table summary for AVR instructions. It's not all of them and clock cycles column only contain for AVR Instruction Set from 1995. For more info check the AVR Instruction Set Manual.
+
+## Instruction Set Nomenclature
+
+**Status Register (SREG) FLAGS**:
+
+`C`: Carry Flag
+
+`Z`: Zero Flag
+
+`N`: Negative Flag
+
+`V`: Two's complement overflow indicator
+
+`S`: N ⊕ V, for signed tests
+
+`H`: Half Carry Flag
+
+`T`: Transfer bit used by `BLD` and `BST` instructions
+
+`I`: Global Interrupt Enable/Disable Flag
+
+Layout:
+
+```
+      [ I | T | H | S | V | N | Z | C ]
+bit:    7   6   5   4   3   2   1   0
+```
+
+**Registers and Operands**
+
+`Rd`: Destination (and source) register in Register File
+
+`Rr`: Source register in the Register File
+
+`R`: Result after instruction is executed
+
+`K`: Constant data
+
+`k`: Constant address
+
+`b`: Bit in the Register File or I/O Register (3-bit)
+
+`s`: Bit in the Status Register (3-bit)
+
+`X,Y,Z`: Indirect Address Register (`X=R27:R26`, `Y=R29:R28`, and `Z=R31:R30`)
+
+`A`: I/O location address
+
+`q`: Displacement for direct addressing (6-bit)
 
 ## Table of Contents
 
 - [Instruction Set Summary Table](#instruction-set-summary-table)
+  - [Instruction Set Nomenclature](#instruction-set-nomenclature)
   - [Table of Contents](#table-of-contents)
   - [Arithmetic and Logic Instructions](#arithmetic-and-logic-instructions)
   - [Branch Instructions](#branch-instructions)
