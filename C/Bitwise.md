@@ -1,6 +1,6 @@
 # Bitwise Operations
 
-Introduction to bitwise operations and how the binary numbers works.
+Introduction to bitwise operations and how the binary and hexadecimal numbers works.
 
 ## Table of Contents
 
@@ -37,7 +37,7 @@ Position:  4 3 2 1 0 : 7 6 5 4 3 2 1 0
 Number:          6 5 = 0 1 0 0 0 0 0 1
 ```
 
-For decimal we now that we can count up 9 til we need to add another number to represent higher number.
+For decimal we know that there are 9 different states, and to get to bigger number we can just add another digit.
 
 The conversion is like this in decimal
 
@@ -45,9 +45,9 @@ The conversion is like this in decimal
 6×10^1 + 5×10^0 = 65
 ```
 
-10 is the how many we can count, it the different state from 0 to 9. Notice `1` and `0` are the positions of the number.
+10 is the how many state there are in decimal notation, these are distinguish with number 0 to 9. Notice `^1` and `^0` have the digit position on it.
 
-We can also convert binary to decimal by doing the same trick. Except in binary there are only 2 state, 0 and 1. What we end up with is
+We can also convert binary to decimal by doing the same trick. Except in binary there are only 2 state, 0 and 1.
 
 ```
 0×2^7 + 1×2^6 + 0×2^5 + 0×2^4 + 0×2^3 + 0×2^2 + 0×2^1 + 1×2^0 = 65
@@ -55,7 +55,7 @@ We can also convert binary to decimal by doing the same trick. Except in binary 
 
 ### Hexadecimal
 
-Hexadecimal is another way of representing numbers. Hexadecimal notation is mostly used by programmers to show numbers. This is because it is shorter to read than reading binary.
+Hexadecimal is another way of representing numbers. They are mostly used for saving spaces.
 
 If we're representing a 16-bit number in binary the number will be 16 character long. Example if we trying to represent this number 256 in 16-bit binary we'll get this and it might not obvious what number it is.
 
@@ -72,22 +72,16 @@ In hexadecimal we can represent a number from 0 to 15 by using the number 0 to 9
 Our example number 256 will be this instead
 
 ```
-00FF
-```
-
-We also usually put `0x` or `$` before the number to indicate that it is a hex number we're trying to represent. In C/C++ we notate it with `0x`.
-
-```
-0x00FF
+0100
 ```
 
 We can do our conversion like we did with decimal and binary like this
 
 ```
 Position: 3 2 1 0
-          0 0 F F = 255
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-0×16^3 + 0×16^2 + 15×16^1 + 15×16^0 = 15×16 + 15×1 = 255
+          0 1 0 0 = 256
+––––––––––––––––––––––––––––––––––––––––
+0×16^3 + 1×16^2 + 0×16^1 + 15×16^0 = 256
 ```
 
 ## Notations
@@ -106,7 +100,7 @@ Bitwise operations is used a lot when we're at register level.
 
 ### AND
 
-Bitwise AND are mostly used for masking out bits in our data. Example if we have an 8-bit number and we want to masked out the upper 4 bits and only get the lower 4 bit value we can use AND operator `&`.
+Bitwise AND are mostly used for masking out bits in our data. Example if we have an 8-bit number and we want to masked out the upper 4 bit and only get the lower 4 bit value we can use AND operator `&`.
 
 ```
 DATA    :      10101010
