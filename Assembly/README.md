@@ -214,7 +214,7 @@ On windows you should just use Atmel Studio 7 as the assembler.
 
 #### Program
 
-To program the chip go to `Tools -> External Tools...` in Atmel Studio. This opens up a configuration window for **External Tools**. You need to add a new configuration and name it in the title field. This can be anything, but it's best to name it to the chip/board you're trying to program.
+To program the device go to `Tools -> External Tools...` in Atmel Studio. This opens up a configuration window for **External Tools**. You need to add a new configuration and name it in the title field. This can be anything, but it's best to name it to the device/board you're trying to program.
 
 Example: We're programming an Arduino Leonardo, the title will be Arduino Leonardo.
 
