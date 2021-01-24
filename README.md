@@ -6,4 +6,4 @@ This project contains small information about how to get the software needed to 
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/KTheXIII/embedded_system/pulls)
 
-You're welcome to contribute by doing Pull requests.
+You're welcome to contribute by doing Pull requests. If you have suggestions you can create an issue and I'll get back to you.
