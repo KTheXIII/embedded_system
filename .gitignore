@@ -10,6 +10,9 @@
 *.elf
 *.lst
 
+# outputs
+out
+
 # macOS files
 .DS_Store
 *.icloud
