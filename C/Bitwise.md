@@ -102,6 +102,14 @@ Bitwise operations is used a lot when we're at register level.
 
 Bitwise AND are mostly used for masking out bits in our data. Example if we have an 8-bit number and we want to masked out the upper 4 bit and only get the lower 4 bit value we can use AND operator `&`.
 
+Syntax in C/C++:
+
+```
+a & b
+```
+
+Example:
+
 ```
 DATA    :      10101010
 MASK    :    & 00001111
@@ -112,6 +120,14 @@ RESULT  :      00001010
 ### OR
 
 Bitwise OR are use for setting just one bit in our data
+
+Syntax in C/C++:
+
+```
+a | b
+```
+
+Example:
 
 ```
 DATA    :     10000000
@@ -124,7 +140,7 @@ RESULT  :     10000010
 
 Bitwise XOR are mostly used when we want to toggle a bit in our data. It is used in conjunction with `AND`. The symbol for XOR in C/C++ is `^`.
 
-Syntax:
+Syntax in C/C++:
 
 ```
 a ^ b
@@ -143,7 +159,7 @@ RESULT  :     10000000
 
 Bitwise Shift Left have the property of multiplying the number by 2 when we shift the number by 1 to the left. We use this `<<` symbol to specify that we want to shift the data.
 
-Syntax:
+Syntax in C/C++:
 
 ```
 a << b
@@ -161,7 +177,7 @@ Example:
 
 Bitwise Shift Right have the property of dividing by 2 when shifting.
 
-Syntax:
+Syntax in C/C++:
 
 ```
 a >> b
@@ -177,7 +193,15 @@ Example:
 
 ### NOT (One's Complement)
 
-Bitwise NOT can invert our data like this
+Bitwise NOT inverts our bits in the data.
+
+Syntax in C/C++:
+
+```
+^a
+```
+
+Example:
 
 ```
 DATA    :    ~10101010
